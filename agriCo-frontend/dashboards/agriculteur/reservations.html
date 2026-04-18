@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AgriCo — Mes Réservations</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="sidebar.css"/>
+  <link rel="stylesheet" href="reservations.css"/>
+  <link rel="stylesheet" href="../shared-profile.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+<div class="layout" id="appLayout"></div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="modalTitle">Nouvelle Réservation</h3>
+      <button class="modal-close" id="modalClose"><i class="fa fa-xmark"></i></button>
+    </div>
+    <div class="modal-body">
+      <div id="modalBodyFields"></div>
+      <button class="modal-submit">Confirmer</button>
+    </div>
+  </div>
+</div>
+
+<script src="sidebar-template.js"></script>
+<script src="sidebar.js"></script>
+<script src="reservations.js"></script>
+<script src="../profile-modal-template.js"></script>
+<script src="../shared-profile.js"></script>
+</body>
+</html>

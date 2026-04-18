@@ -1,0 +1,67 @@
+/* prestataire-services.css */
+.stats-row {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-bottom: 28px;
+}
+.mini-stat {
+  background: var(--white); border-radius: var(--radius-lg);
+  border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+  padding: 22px 24px; display: flex; align-items: center; gap: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.mini-stat:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.mini-stat-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.mini-stat-icon.blue  { background: var(--blue-light);  color: var(--blue); }
+.mini-stat-icon.green { background: var(--green-light); color: var(--green-btn); }
+.mini-stat-icon.gold  { background: var(--gold-light);  color: var(--gold); }
+.mini-stat-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); }
+.mini-stat-value { font-family: var(--font-head); font-size: 1.7rem; font-weight: 700; color: var(--text); }
+
+/* View toggle */
+.view-toggle { display: flex; gap: 4px; background: var(--bg); border-radius: 8px; padding: 3px; }
+.view-btn { width: 34px; height: 34px; border-radius: 6px; border: none; background: none; color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+.view-btn.active { background: var(--white); color: var(--blue); box-shadow: var(--shadow-sm); }
+
+/* Cards grid */
+.svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+.svc-card {
+  background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm); overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.svc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.svc-card-img { height: 160px; overflow: hidden; position: relative; }
+.svc-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.svc-card:hover .svc-card-img img { transform: scale(1.06); }
+.svc-card-body { padding: 18px; }
+.svc-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.svc-card-actions { display: flex; gap: 6px; }
+.svc-action-btn { width: 30px; height: 30px; border-radius: 8px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; transition: opacity 0.15s; }
+.svc-action-btn.edit { background: var(--blue-light); color: var(--blue); }
+.svc-action-btn.del  { background: var(--red-light);  color: var(--red); }
+.svc-name { font-family: var(--font-head); font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.svc-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }
+.svc-card-footer { display: flex; align-items: center; justify-content: space-between; }
+.svc-price { font-size: 1.25rem; font-weight: 700; color: var(--green-btn); }
+.svc-price small { font-size: 0.72rem; font-weight: 400; color: var(--text-muted); }
+.svc-rating { display: flex; align-items: center; gap: 4px; font-size: 0.78rem; font-weight: 700; color: var(--gold); }
+
+/* Add card */
+.svc-add-card {
+  border: 2px dashed var(--border); border-radius: var(--radius-lg); background: none;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; padding: 40px; cursor: pointer;
+  color: var(--text-muted); font-family: var(--font-body); font-size: 0.88rem; font-weight: 700;
+  transition: border-color 0.2s, color 0.2s; min-height: 240px;
+}
+.svc-add-card:hover { border-color: var(--blue); color: var(--blue); }
+.svc-add-card i { font-size: 2rem; transition: transform 0.2s; }
+.svc-add-card:hover i { transform: scale(1.1); }
+
+/* Table view */
+.table-view { display: none; }
+.table-view.active { display: block; }
+.cards-view { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+.cards-view.hidden { display: none; }
+
+@media (max-width: 1100px) { .svc-grid, .cards-view { grid-template-columns: repeat(2,1fr); } .stats-row { grid-template-columns: 1fr; } }
+@media (max-width: 700px)  { .svc-grid, .cards-view { grid-template-columns: 1fr; } }

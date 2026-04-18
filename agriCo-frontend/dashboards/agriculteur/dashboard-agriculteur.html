@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AgriCo — Dashboard Agriculteur</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="sidebar.css" />
+  <link rel="stylesheet" href="dashboard-agriculteur.css" />
+  <link rel="stylesheet" href="../shared-profile.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- ===================== LAYOUT ===================== -->
+  <div class="layout">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar" id="sidebar">
+
+      <!-- Logo -->
+      <div class="sidebar-logo">
+        <a href="../../index.html" class="nav-logo">
+          <img src="../../images/logo.png" alt="AgriCo" class="logo-img" />
+        </a>
+
+        <!-- Role Switcher -->
+        <div class="role-switcher">
+          <button class="role-btn" id="roleSwitchBtn">
+            <span class="role-dot green"></span>
+            <span class="role-label">Agriculteur</span>
+            <i class="fa fa-rotate role-refresh"></i>
+          </button>
+          <div class="role-dropdown" id="roleDropdown">
+            <button class="role-option" data-role="prestataire">
+              <span class="role-dot blue"></span>
+              Passer en Prestataire
+            </button>
+            <button class="role-option" data-role="fournisseur">
+              <span class="role-dot gold"></span>
+              Passer en Fournisseur
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nav -->
+      <nav class="sidebar-nav">
+        <a href="dashboard-agriculteur.html" class="nav-item active" data-section="dashboard">
+          <i class="fa fa-chart-pie nav-icon"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="commandes.html" class="nav-item" data-section="commandes">
+          <i class="fa fa-bag-shopping nav-icon"></i>
+          <span>Mes commandes</span>
+        </a>
+        <a href="reservations.html" class="nav-item" data-section="reservations">
+          <i class="fa fa-calendar nav-icon"></i>
+          <span>Mes réservations</span>
+        </a>
+        <a href="avis.html" class="nav-item" data-section="avis">
+          <i class="fa fa-comment nav-icon"></i>
+          <span>Mes avis</span>
+        </a>
+        <a href="depenses.html" class="nav-item" data-section="depenses">
+          <i class="fa fa-chart-line nav-icon"></i>
+          <span>Dépenses</span>
+        </a>
+      </nav>
+
+      <!-- Logout -->
+      <div class="sidebar-footer">
+        <button class="logout-btn">
+          <i class="fa fa-right-from-bracket"></i>
+          <span>Déconnexion</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main">
+
+      <!-- Header -->
+      <header class="main-header">
+        <div>
+          <h1 class="page-title">Espace Agriculteur</h1>
+          <p class="page-sub">Voici un aperçu de votre exploitation aujourd'hui.</p>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn" title="Notifications">
+            <i class="fa fa-bell"></i>
+            <span class="notif-dot"></span>
+          </button>
+          <button class="avatar" id="profileBtn" title="Mon Profil"> </button>
+        </div>
+      </header>
+
+      <!-- ===== STAT CARDS ===== -->
+      <div class="stats-grid">
+
+        <div class="stat-card">
+            <div class="stat-info">
+            <p class="stat-label">Total Commandes</p>
+            <h3 class="stat-value">24</h3>
+          </div>
+          <div class="stat-icon">
+            <i class="fa fa-bag-shopping"></i>
+          </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-info">
+            <p class="stat-label">Total Réservations</p>
+            <h3 class="stat-value">8</h3>
+          </div>
+          <div class="stat-icon">
+            <i class="fa fa-calendar-check"></i>
+          </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-info">
+            <p class="stat-label">Total Dépenses</p>
+            <h3 class="stat-value">4 250€</h3>
+          </div>
+          <div class="stat-icon">
+            <i class="fa fa-chart-line"></i>
+          </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-info">
+            <p class="stat-label">Demandes en attente</p>
+            <h3 class="stat-value">3</h3>
+          </div>
+          <div class="stat-icon">
+            <i class="fa fa-clock"></i>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== CHART + QUICK ACTIONS ===== -->
+      <div class="mid-grid">
+
+        <!-- Graph removed (dépenses chart) -->
+
+        <!-- Quick Actions Panel -->
+        <div class="actions-panel">
+          <h3 class="section-title light">Actions Rapides</h3>
+
+          <div class="quick-btns">
+            <button class="quick-btn primary" id="btnNouvCmd">
+              <i class="fa fa-plus"></i> Commander un produit
+            </button>
+            <button class="quick-btn secondary" id="btnReserve">
+              <i class="fa fa-calendar-plus"></i> Réserver un service
+            </button>
+            <!-- Bouton Contacter Support supprimé -->
+          </div>
+
+          <div class="conseil-box">
+            <p class="conseil-label">Conseil du jour</p>
+            <p class="conseil-text">
+              Pensez à vérifier l'humidité de vos sols avant la prochaine session d'arrosage prévue demain.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== TABLES ===== -->
+      <div class="tables-grid">
+
+        <!-- Reservations Table -->
+        <div class="table-card">
+          <div class="table-header">
+            <h3 class="section-title">Réservations de services</h3>
+            <button class="dots-btn" title="Options"><i class="fa fa-ellipsis"></i></button>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Prestataire</th>
+                  <th>Date</th>
+                  <th>Statut</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="bold">Labour</td>
+                  <td class="muted">Jean D.</td>
+                  <td class="muted">12 Mars</td>
+                  <td><span class="badge confirme">Confirmé</span></td>
+                </tr>
+                <tr>
+                  <td class="bold">Irrigation</td>
+                  <td class="muted">AgriTech</td>
+                  <td class="muted">15 Mars</td>
+                  <td><span class="badge attente">En attente</span></td>
+                </tr>
+                <tr>
+                  <td class="bold">Taille</td>
+                  <td class="muted">Marc L.</td>
+                  <td class="muted">10 Mars</td>
+                  <td><span class="badge refuse">Refusé</span></td>
+                </tr>
+                <tr>
+                  <td class="bold">Semis drone</td>
+                  <td class="muted">SkyAgri</td>
+                  <td class="muted">20 Mars</td>
+                  <td><span class="badge confirme">Confirmé</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-footer">
+            <a href="reservations.html" class="voir-tout">Voir tout <i class="fa fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Orders Table -->
+        <div class="table-card">
+          <div class="table-header">
+            <h3 class="section-title">Commandes de produits</h3>
+            <button class="dots-btn" title="Options"><i class="fa fa-ellipsis"></i></button>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Produit</th>
+                  <th>Fournisseur</th>
+                  <th>Date</th>
+                  <th>Statut</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="bold">Semences Blé</td>
+                  <td class="muted">BioSem.</td>
+                  <td class="muted">08 Mars</td>
+                  <td><span class="badge confirme">Confirmé</span></td>
+                </tr>
+                <tr>
+                  <td class="bold">Engrais NPK</td>
+                  <td class="muted">FertilAgri</td>
+                  <td class="muted">14 Mars</td>
+                  <td><span class="badge attente">En attente</span></td>
+                </tr>
+                <tr>
+                  <td class="bold">Tracteur 50CV</td>
+                  <td class="muted">EquipAgri</td>
+                  <td class="muted">18 Mars</td>
+                  <td><span class="badge confirme">Confirmé</span></td>
+                </tr>
+                <tr>
+                  <td class="bold">Aliment bétail</td>
+                  <td class="muted">NutriFarm</td>
+                  <td class="muted">22 Mars</td>
+                  <td><span class="badge attente">En attente</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-footer">
+            <a href="commandes.html" class="voir-tout">Voir tout <i class="fa fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ===== MODAL Nouvelle Commande ===== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle">Nouvelle Commande</h3>
+        <button class="modal-close" id="modalClose"><i class="fa fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <div class="form-group">
+          <label>Produit</label>
+          <input type="text" placeholder="Nom du produit..." />
+        </div>
+        <div class="form-group">
+          <label>Fournisseur</label>
+          <input type="text" placeholder="Nom du fournisseur..." />
+        </div>
+        <div class="form-group">
+          <label>Quantité</label>
+          <input type="number" placeholder="0" min="1" />
+        </div>
+        <div class="form-group">
+          <label>Date souhaitée</label>
+          <input type="date" />
+        </div>
+        <button class="modal-submit">Confirmer la commande</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="sidebar-template.js"></script>
+  <script src="sidebar.js"></script>
+  <script src="dashboard-agriculteur.js"></script>
+  <script src="../profile-modal-template.js"></script>
+  <script src="../shared-profile.js"></script>
+</body>
+</html>

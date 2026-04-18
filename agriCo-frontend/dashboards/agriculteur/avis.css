@@ -1,0 +1,167 @@
+/* avis.css */
+
+/* Score overview */
+.avis-overview {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.score-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: 36px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.score-big {
+  font-family: var(--font-head);
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+.stars-row { display: flex; gap: 4px; }
+.star-full  { color: var(--gold); font-size: 1rem; }
+.star-empty { color: #e0ddd5; font-size: 1rem; }
+
+.score-sub { font-size: 0.72rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); }
+.score-count { font-size: 0.8rem; color: var(--text-muted); }
+
+/* Distribution bars */
+.distrib-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.distrib-row { display: flex; align-items: center; gap: 14px; }
+.distrib-label { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); width: 14px; text-align: center; flex-shrink: 0; }
+.distrib-bar-bg { flex: 1; height: 8px; background: #eaeae5; border-radius: 6px; overflow: hidden; }
+.distrib-bar-fill { height: 100%; border-radius: 6px; background: var(--gold); transition: width 0.8s ease; }
+.distrib-pct { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); width: 34px; text-align: right; flex-shrink: 0; }
+
+/* Review cards */
+.reviews-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.reviews-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.review-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.review-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+
+.review-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  gap: 12px;
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reviewer-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--green-light);
+  color: var(--green-btn);
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.reviewer-name { font-weight: 700; color: var(--text); font-size: 0.9rem; }
+.reviewer-date { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+
+.review-stars { display: flex; gap: 3px; }
+.review-stars i { font-size: 0.8rem; color: var(--gold); }
+
+.review-service {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: var(--green-light);
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--green-btn);
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.review-text {
+  font-size: 0.88rem;
+  color: #444;
+  line-height: 1.65;
+}
+
+/* Sort select */
+.sort-select {
+  padding: 8px 32px 8px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--white);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  outline: none;
+}
+
+.star-filter { display: flex; gap: 6px; flex-wrap: wrap; }
+.star-filter-btn {
+  padding: 6px 14px; border-radius: 20px;
+  border: 1.5px solid var(--border); background: var(--white);
+  font-family: var(--font-body); font-size: 0.75rem; font-weight: 700;
+  color: var(--text-muted); cursor: pointer; transition: all 0.15s;
+  display: flex; align-items: center; gap: 5px;
+}
+.star-filter-btn:hover, .star-filter-btn.active {
+  background: var(--gold); border-color: var(--gold); color: var(--white);
+}
+
+@media (max-width: 900px) { .avis-overview { grid-template-columns: 1fr; } }

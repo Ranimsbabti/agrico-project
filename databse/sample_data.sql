@@ -1,0 +1,6 @@
+-- Sample data for utilisateurs table
+INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `email`, `mdp`, `role`, `telephone`, `localisation`, `avatar`, `bio`, `created_at`, `updated_at`) VALUES
+(1, 'Dupont', 'Jean', 'jean.dupont@email.com', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPjYLC7KzYzS', 'prestataire', '12345678', 'Tunis', 'https://i.pravatar.cc/80?img=1', 'Prestataire agricole expérimenté avec 10 ans d\'expérience.', '2026-04-15 20:00:00', '2026-04-15 20:00:00'),
+(2, 'Martin', 'Marie', 'marie.martin@email.com', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPjYLC7KzYzS', 'prestataire', '87654321', 'Sfax', 'https://i.pravatar.cc/80?img=2', 'Spécialiste en arrosage et irrigation moderne.', '2026-04-15 20:00:00', '2026-04-15 20:00:00'),
+(3, 'Leroy', 'Pierre', 'pierre.leroy@email.com', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPjYLC7KzYzS', 'fournisseur', '11223344', 'Sousse', 'https://i.pravatar.cc/80?img=3', 'Fournisseur de matériel agricole de qualité.', '2026-04-15 20:00:00', '2026-04-15 20:00:00'),
+(4, 'Dubois', 'Sophie', 'sophie.dubois@email.com', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPjYLC7KzYzS', 'fournisseur', '44332211', 'Monastir', 'https://i.pravatar.cc/80?img=4', 'Fournisseur de semences et produits phytosanitaires.', '2026-04-15 20:00:00', '2026-04-15 20:00:00');

@@ -1,0 +1,309 @@
+/* ================================
+   shared-profile.css — Styles du modal de profil partagé
+================================ */
+
+:root {
+  --green-dark:  #3d4a1e;
+  --green-mid:   #4e6120;
+  --green-btn:   #5a7a22;
+  --green-light: rgba(90,122,34,0.12);
+  --blue:        #58748c;
+  --blue-light:  rgba(88,116,140,0.12);
+  --gold:        #c8840a;
+  --gold-light:  rgba(200,132,10,0.15);
+  --red:         #e53935;
+  
+  --bg:          #fcf8f3;
+  --white:       #ffffff;
+  --text:        #1a1a1a;
+  --text-muted:  #8a8575;
+  --border:      #dcdee2;
+  
+  --shadow-sm:   0 2px 10px rgba(0,0,0,0.05);
+  --shadow:      0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg:   0 10px 40px rgba(0,0,0,0.13);
+  
+  --radius-sm:   10px;
+  --radius:      20px;
+  --radius-lg:   28px;
+  
+  --font-body:   'DM Sans', sans-serif;
+  --font-head:   'Playfair Display', serif;
+}
+
+/* ========== MODAL OVERLAY ========== */
+#profileModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+#profileModalOverlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ========== AVATAR BUTTON (clickable to open profile) ========== */
+#profileBtn {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#profileBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#profileBtn:active {
+  transform: scale(0.98);
+}
+
+/* Optional: Add a subtle ring on focus */
+#profileBtn:focus {
+  outline: 2px solid var(--green-btn);
+  outline-offset: 2px;
+}
+
+/* ========== MODAL CONTENT ========== */
+.profile-modal {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  max-width: 500px;
+  width: 90%;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== MODAL HEADER ========== */
+.profile-modal-header {
+  padding: 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-modal-header h2 {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: 1.5rem;
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+.profile-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s, color 0.2s;
+}
+
+.profile-modal-close:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ========== MODAL BODY ========== */
+.profile-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.profile-modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.profile-modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.profile-modal-body::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.profile-modal-body::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ========== FORM FIELD ========== */
+.profile-field {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-field:last-child {
+  margin-bottom: 0;
+}
+
+.profile-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+  display: flex;
+  gap: 4px;
+}
+
+.profile-field label .required {
+  color: var(--red);
+}
+
+.profile-field-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-field-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.profile-field input,
+.profile-field textarea {
+  width: 100%;
+  padding: 10px 14px 10px 40px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.profile-field textarea {
+  resize: vertical;
+  min-height: 80px;
+  padding: 12px 14px;
+}
+
+.profile-field input::placeholder,
+.profile-field textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.profile-field input:focus,
+.profile-field textarea:focus {
+  outline: none;
+  border-color: var(--green-btn);
+  box-shadow: 0 0 0 3px var(--green-light);
+}
+
+.profile-field input:invalid {
+  border-color: var(--red);
+}
+
+/* ========== MODAL FOOTER ========== */
+.profile-modal-footer {
+  padding: 20px 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.profile-modal-footer button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#profileCancelBtn {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+#profileCancelBtn:hover {
+  background: var(--border);
+}
+
+#profileSaveBtn {
+  background: var(--green-btn);
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+#profileSaveBtn:hover:not(:disabled) {
+  background: var(--green-mid);
+  box-shadow: var(--shadow-sm);
+}
+
+#profileSaveBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .profile-modal {
+    width: 95%;
+    max-height: 90vh;
+    border-radius: var(--radius-sm);
+  }
+
+  .profile-modal-header {
+    padding: 18px;
+  }
+
+  .profile-modal-body {
+    padding: 18px;
+  }
+
+  .profile-modal-footer {
+    padding: 15px 18px;
+    flex-direction: column-reverse;
+  }
+
+  .profile-modal-footer button {
+    width: 100%;
+    justify-content: center;
+  }
+}

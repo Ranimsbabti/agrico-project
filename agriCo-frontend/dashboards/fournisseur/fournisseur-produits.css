@@ -1,0 +1,50 @@
+/* fournisseur-produits.css */
+
+.stats-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; margin-bottom: 28px; }
+.mini-stat { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm); padding: 20px 22px; display: flex; align-items: center; gap: 14px; transition: transform 0.2s, box-shadow 0.2s; }
+.mini-stat:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.ms-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; flex-shrink: 0; }
+.ms-icon.gold   { background: var(--gold-light);  color: var(--gold); }
+.ms-icon.green  { background: var(--green-light);  color: var(--green-btn); }
+.ms-icon.orange { background: var(--orange-light); color: var(--orange); }
+.ms-icon.red    { background: var(--red-light);    color: var(--red); }
+.ms-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); }
+.ms-value { font-family: var(--font-head); font-size: 1.55rem; font-weight: 700; color: var(--text); margin-top: 3px; }
+
+/* View toggle */
+.view-toggle { display: flex; gap: 4px; background: var(--bg); border-radius: 8px; padding: 3px; }
+.view-btn { width: 34px; height: 34px; border-radius: 6px; border: none; background: none; color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+.view-btn.active { background: var(--white); color: var(--gold); box-shadow: var(--shadow-sm); }
+
+/* Cards grid */
+.prod-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+.prod-card { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm); overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+.prod-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.prod-img { height: 160px; overflow: hidden; position: relative; }
+.prod-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.prod-card:hover .prod-img img { transform: scale(1.06); }
+.prod-body { padding: 18px; }
+.prod-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.prod-actions { display: flex; gap: 6px; }
+.prod-action-btn { width: 30px; height: 30px; border-radius: 8px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; transition: opacity 0.15s; }
+.prod-action-btn.edit { background: var(--gold-light);  color: var(--gold); }
+.prod-action-btn.del  { background: var(--red-light);   color: var(--red); }
+.prod-name { font-family: var(--font-head); font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.prod-cat  { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 10px; }
+.prod-footer { display: flex; align-items: center; justify-content: space-between; }
+.prod-price { font-size: 1.2rem; font-weight: 700; color: var(--green-btn); }
+.prod-price small { font-size: 0.72rem; font-weight: 400; color: var(--text-muted); }
+.prod-stock { display: flex; align-items: center; gap: 5px; font-size: 0.75rem; font-weight: 700; }
+
+/* Add card */
+.prod-add-card { border: 2px dashed var(--border); border-radius: var(--radius-lg); background: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 40px; cursor: pointer; color: var(--text-muted); font-family: var(--font-body); font-size: 0.88rem; font-weight: 700; transition: border-color 0.2s, color 0.2s; min-height: 250px; }
+.prod-add-card:hover { border-color: var(--gold); color: var(--gold); }
+.prod-add-card i { font-size: 2rem; transition: transform 0.2s; }
+.prod-add-card:hover i { transform: scale(1.1); }
+
+/* Table view */
+.table-view { display: none; }
+.table-view.active { display: block; }
+
+@media (max-width: 1100px) { .prod-grid { grid-template-columns: repeat(2,1fr); } .stats-row { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 700px)  { .prod-grid { grid-template-columns: 1fr; } }
